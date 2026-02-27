@@ -1,18 +1,22 @@
 /*
-  SQLZoo - Nested SELECT (Subqueries)
-  Platform: https://sqlzoo.net/wiki/SELECT_within_SELECT
-  
-  Description:
-  Solutions to exercises involving nested queries and correlated subqueries.
-  Topics covered:
+  Project   : SQLZoo Practice
+  Module    : Nested SELECT (Subqueries)
+  Source    : https://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial
+  Focus     : Subqueries and correlated queries
+
+  Concepts:
   - Scalar subqueries
   - Correlated subqueries
-  - ALL operator
-  - IN with subqueries
-  - Comparison with aggregated values
+  - ALL
+  - IN (subqueries)
+  - Aggregation in subqueries
 */
 
--- 1. List countries with a population larger than Russia.
+
+-- ========================================
+-- 1. List countries with a population 
+-- larger than Russia.
+-- ========================================
 SELECT name
 FROM world
 WHERE population >
@@ -20,7 +24,11 @@ WHERE population >
        FROM world
        WHERE name = 'Russia');
 
--- 2. Show European countries with a per capita GDP greater than the United Kingdom.
+
+-- ========================================
+-- 2. Show European countries with a per capita 
+-- GDP greater than the United Kingdom.
+-- ========================================
 SELECT name
 FROM world
 WHERE continent = 'Europe'
@@ -29,7 +37,11 @@ WHERE continent = 'Europe'
        FROM world
        WHERE name = 'United Kingdom');
 
--- 3. List name and continent of countries in the same continents as Argentina or Australia.
+
+-- ========================================
+-- 3. List name and continent of countries 
+-- in the same continents as Argentina or Australia.
+-- ========================================
 SELECT name, continent
 FROM world
 WHERE continent IN (
@@ -39,7 +51,11 @@ WHERE continent IN (
 )
 ORDER BY name;
 
--- 4. Show the country with population between the United Kingdom and Germany.
+
+-- ========================================
+-- 4. Show the country with population 
+-- between the United Kingdom and Germany.
+-- ========================================
 SELECT name, population
 FROM world
 WHERE population >
@@ -47,7 +63,11 @@ WHERE population >
   AND population <
       (SELECT population FROM world WHERE name = 'Germany');
 
--- 5. Show European countries with population as a percentage of Germany.
+
+-- ========================================
+-- 5. Show European countries with 
+-- population as a percentage of Germany.
+-- ========================================
 SELECT name,
        CONCAT(
            ROUND(
@@ -61,7 +81,11 @@ SELECT name,
 FROM world
 WHERE continent = 'Europe';
 
--- 6. Show countries with GDP greater than every country in Europe.
+
+-- ========================================
+-- 6. Show countries with GDP greater than 
+-- every country in Europe.
+-- ========================================
 SELECT name
 FROM world
 WHERE gdp > (
@@ -70,7 +94,11 @@ WHERE gdp > (
     WHERE continent = 'Europe'
 );
 
--- 7. Find the largest country (by area) in each continent.
+
+-- ========================================
+-- 7. Find the largest country (by area) 
+-- in each continent.
+-- ========================================
 SELECT continent, name, area
 FROM world x
 WHERE area >= ALL (
@@ -79,7 +107,11 @@ WHERE area >= ALL (
     WHERE y.continent = x.continent
 );
 
--- 8. List each continent and the country that comes first alphabetically.
+
+-- ========================================
+-- 8. List each continent and the country 
+-- that comes first alphabetically.
+-- ========================================
 SELECT continent, name
 FROM world x
 WHERE name <= ALL (
@@ -89,8 +121,12 @@ WHERE name <= ALL (
 )
 ORDER BY continent;
 
--- 9. Find continents where all countries have population <= 25,000,000,
+
+-- ========================================
+-- 9. Find continents where all countries 
+-- have population <= 25,000,000,
 -- and show their countries.
+-- ========================================
 SELECT name, continent, population
 FROM world x
 WHERE 25000000 >= ALL (
@@ -99,8 +135,12 @@ WHERE 25000000 >= ALL (
     WHERE y.continent = x.continent
 );
 
--- 10. Show countries whose population is more than three times
+
+-- ========================================
+-- 10. Show countries whose population is 
+-- more than three times
 -- that of all other countries in the same continent.
+-- ========================================
 SELECT name, continent
 FROM world x
 WHERE population > ALL (
