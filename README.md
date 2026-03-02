@@ -1,33 +1,4 @@
 # SQLZoo Exercises | Exercícios SQLZoo
-
-## 🇧🇷 Sobre o Projeto
-
-Este repositório contém minhas soluções para os exercícios da plataforma SQLZoo.
-
-O objetivo é fortalecer fundamentos de SQL, organização de consultas e raciocínio lógico através de exercícios progressivos.
-
-### Tópicos Praticados
-
-- SELECT básico
-- WHERE, IN, BETWEEN
-- Operadores lógicos (AND, OR)
-- Funções de agregação
-- Subqueries
-- Correlated subqueries
-- Operador ALL
-- Manipulação de strings
-- Boas práticas de formatação SQL
-
-### Objetivo
-
-Além de resolver exercícios, este repositório busca:
-
-- Manter código organizado e legível
-- Evitar `SELECT *`
-- Utilizar aliases claros
-- Aplicar estrutura consistente
-- Tratar exercícios como material de portfólio
-
 ---
 
 ## 🇺🇸 About This Project
@@ -59,5 +30,31 @@ Rather than simply solving exercises, this repository focuses on:
 - Treating practice as portfolio material
 
 ---
-### Author
-Débora Rodrigues
+
+## 🇧🇷 Sobre o Projeto
+
+Este repositório contém minhas soluções para os exercícios da plataforma SQLZoo.
+
+O objetivo é fortalecer fundamentos de SQL, organização de consultas e raciocínio lógico através de exercícios progressivos.
+
+### Tópicos Praticados
+
+- SELECT básico
+- WHERE, IN, BETWEEN
+- Operadores lógicos (AND, OR)
+- Funções de agregação
+- Subqueries
+- Correlated subqueries
+- Operador ALL
+- Manipulação de strings
+- Boas práticas de formatação SQL
+
+### Objetivo
+
+Além de resolver exercícios, este repositório busca:
+
+- Manter código organizado e legível
+- Evitar `SELECT *`
+- Utilizar aliases claros
+- Aplicar estrutura consistente
+- Tratar exercícios como material de portfólio
